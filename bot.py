@@ -2,8 +2,17 @@ from riotwatcher import LolWatcher
 from dotenv import load_dotenv
 import discord
 import os
+import mysql.connector
+
 
 load_dotenv()
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword"
+)
+
 watcher = LolWatcher(os.getenv('API_KEY'))
 
 client = discord.Client()
